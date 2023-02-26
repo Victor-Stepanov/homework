@@ -1,18 +1,19 @@
-'use strict'
 const userArr = [
     {
         id: 1,
-        name: 'Вася'
+        name: 'Вася',
     },
     {
         id: 2,
-        name: 'Петя'
+        name: 'Петя',
     },
     {
         id: 1,
-        name: 'Вася'
-    }
-]
+        name: 'Вася',
+    },
+];
 
-const users = new Set(userArr.map((value, _, arr) => arr.find((el) => el.id === value.id)))
-const uniqUsers = [...users]
+const users = new Set(
+    userArr.map((value, _, arr) => arr.find(el => el.id === value.id))
+);
+const uniqUsers = [...users];
