@@ -1,9 +1,9 @@
 'use strict';
 
-const URL_HW = 'https://pokeapi.co/api/v2/pokemon/ditto';
+const _URL = 'https://pokeapi.co/api/v2/pokemon/ditto';
 
 const request = new XMLHttpRequest();
-request.open('GET', `${URL_HW}`);
+request.open('GET', `${_URL}`);
 request.send();
 request.addEventListener('load', function () {
   const { abilities } = JSON.parse(this.responseText);
