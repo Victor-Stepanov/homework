@@ -1,44 +1,37 @@
 class Car {
-    #_make;
-    #_model;
-    #_milage;
+  #make;
+  #model;
+  #milage;
 
-    constructor(make, model, milage) {
-        this.#make = make;
-        this.#model = model;
-        this.#milage = milage;
-    }
-    get #make() {
-        return this.#_make;
-    }
-    set #make(make) {
-        this.#_make = make;
-    }
-    get #model() {
-        return this.#_model;
-    }
-    set #model(model) {
-        this.#_model = model;
-    }
-    get #milage() {
-        return this.#_milage;
-    }
-    set #milage(milage) {
-        this.#_milage = milage;
-    }
+  constructor(make, model, milage) {
+    this.#make = make;
+    this.#model = model;
+    this.#milage = milage;
+  }
 
-    #checkedData() {
-        if (this.#make && this.#model && this.#checkedData) {
-            return true;
-        }
-        return false;
+  get milage() {
+    return this.#milage;
+  }
+
+  set changeMilage(value) {
+    this.#milage = value;
+  }
+
+  #checkedData() {
+    if (this.#make && this.#model && this.milage) {
+      return true;
     }
-    getInfo() {
-        if (!this.#checkedData()) {
-            return 'error';
-        }
-        return `Марка: ${this.#make} Модель: ${this.#model} Пробег: ${this.#milage
-            }`;
+    return false;
+  }
+  getInfo() {
+    if (!this.#checkedData()) {
+      return 'error';
     }
+    return `Марка: ${this.#make} Модель: ${this.#model} Пробег: ${this.milage}`;
+  }
 }
 
+const car = new Car('Tesla', 'Model3', '35000');
+console.log(car.getInfo());
+car.changeMilage = '135000'; // change milage
+console.log(car.getInfo());
