@@ -1,9 +1,8 @@
-
-class Task {
-    run() {
-        console.log('Писать код')
-        return this;
-    }
+export class Task {
+  constructor(message) {
+    this.message = message;
+  }
+  run() {
+    console.log(this.message);
+  }
 }
-
-export default Task;
