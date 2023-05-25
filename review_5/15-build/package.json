@@ -1,0 +1,20 @@
+{
+  "name": "15-build",
+  "version": "1.0.0",
+  "description": "task_3",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "live-server",
+    "build":"rollup -c"
+  },
+  "keywords": [
+    "build-15"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "rollup": "^3.22.0"
+  }
+}
