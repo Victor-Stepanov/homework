@@ -1,23 +1,21 @@
 'use strict';
 const container = document.querySelector('.container');
+const buttons = container.querySelectorAll('button');
 const counter = container.querySelector('.counter');
 
-let count = 0;
-const nodes = container.children;
+container.addEventListener('click', onButtonChangeState);
 
-for (let i = 0; i < nodes.length; i++) {
-  const currentElement = nodes[i];
-  if (currentElement instanceof HTMLButtonElement) {
-    currentElement.addEventListener('click', changeState);
+function onButtonChangeState(event) {
+  const button = event.target.closest('button');
+  if (!button || button.hasAttribute('data')) {
+    return;
   }
-}
+  buttons.forEach(btn => {
+    btn.removeAttribute('data');
+    btn.textContent = 'Нажми меня';
+  });
+  button.setAttribute('data', 'active');
+  button.textContent = 'Нажата';
 
-function changeState(event) {
-  if (event.currentTarget.innerHTML === 'Нажали') {
-    event.currentTarget.innerHTML = 'Нажми меня';
-    counter.innerHTML = --count;
-  } else {
-    event.currentTarget.innerHTML = 'Нажали';
-    counter.innerHTML = ++count;
-  }
+  counter.textContent = String(parseInt(counter.textContent) + 1);
 }
